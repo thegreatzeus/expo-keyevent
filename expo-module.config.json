@@ -1,0 +1,9 @@
+{
+  "platforms": ["apple", "android"],
+  "apple": {
+    "modules": ["ExpoKeyeventModule"]
+  },
+  "android": {
+    "modules": ["expo.modules.keyevent.ExpoKeyeventModule"]
+  }
+}

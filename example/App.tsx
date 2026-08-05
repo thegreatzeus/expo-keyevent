@@ -1,100 +1,27 @@
-import ExpoKeyevent, { ExpoKeyeventView, ExpoKeyeventSwiftUIView, ExpoKeyeventComposeView, expoKeyeventSwiftUIModifier, expoKeyeventComposeModifier, useExpoKeyeventModuleSharedObject } from 'expo-keyevent';
+import ExpoKeyevent from 'expo-keyevent';
 import { useEvent } from 'expo';
-import { Host as SwiftUIHost, Text as SwiftUIText } from '@expo/ui/swift-ui';
-import { padding, cornerRadius, background } from '@expo/ui/swift-ui/modifiers';
-import { VStack } from '@expo/ui/swift-ui';
-import { Host as ComposeHost, Text as ComposeText } from '@expo/ui/jetpack-compose';
-import { paddingAll, background as composeBackground } from '@expo/ui/jetpack-compose/modifiers';
-import { Column } from '@expo/ui/jetpack-compose';
-import { useState } from 'react';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import { useEffect } from 'react';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 
 export default function App() {
-  const onChangePayload = useEvent(ExpoKeyevent, 'onChange');
-  const sharedObject = useExpoKeyeventModuleSharedObject();
-  const [sharedObjectCount, setSharedObjectCount] = useState(0);
+  const onKeyDownPayload = useEvent(ExpoKeyevent, 'onKeyDown');
+  const onKeyUpPayload = useEvent(ExpoKeyevent, 'onKeyUp');
+
+  useEffect(() => {
+    ExpoKeyevent.startListening(true);
+    return () => {
+      ExpoKeyevent.stopListening();
+    };
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.container}>
-        <Text style={styles.header}>Module API Example</Text>
-        <Group name="Constants">
-          <Text>{ExpoKeyevent.PI}</Text>
+        <Text style={styles.header}>ExpoKeyEvent Example</Text>
+        <Group name="Key Events">
+          <Text>Last Key Down: {onKeyDownPayload ? `${onKeyDownPayload.key} (Code: ${onKeyDownPayload.keyCode})` : 'None'}</Text>
+          <Text>Last Key Up: {onKeyUpPayload ? `${onKeyUpPayload.key} (Code: ${onKeyUpPayload.keyCode})` : 'None'}</Text>
         </Group>
-        <Group name="Functions">
-          <Text>{ExpoKeyevent.hello()}</Text>
-        </Group>
-        <Group name="Async functions">
-          <Button
-            title="Set value"
-            onPress={async () => {
-              await ExpoKeyevent.setValueAsync('Hello from JS!');
-            }}
-          />
-        </Group>
-        <Group name="Events">
-          <Text>{onChangePayload?.value}</Text>
-        </Group>
-        <Group name="Views">
-          <ExpoKeyeventView onTap={() => console.log('Tapped!')} style={styles.view} />
-        </Group>
-        <Group name="Shared Object">
-          <Text>Count: {sharedObjectCount}</Text>
-          <Button title="Read count" onPress={() => setSharedObjectCount(sharedObject.count)} />
-          <Button
-            title="Increment count"
-            onPress={() => {
-              sharedObject.count += 1;
-            }}
-          />
-        </Group>
-        {process.env.EXPO_OS === 'ios' && (
-          <Group name="SwiftUI View">
-            <SwiftUIHost style={styles.view}>
-              <ExpoKeyeventSwiftUIView
-                title="Hello from ExpoKeyevent"
-                modifiers={[padding({ all: 16 }), cornerRadius(12), background('#f0f0f0')]}>
-                <SwiftUIText>Child content</SwiftUIText>
-              </ExpoKeyeventSwiftUIView>
-            </SwiftUIHost>
-          </Group>
-        )}
-        {process.env.EXPO_OS === 'ios' && (
-          <Group name="SwiftUI Modifier">
-            <SwiftUIHost style={styles.view}>
-              <VStack
-                modifiers={[
-                  padding({ all: 20 }),
-                  expoKeyeventSwiftUIModifier({ color: '#FF6B35', width: 3, cornerRadius: 8 }),
-                ]}>
-                <SwiftUIText>Custom modifier example</SwiftUIText>
-              </VStack>
-            </SwiftUIHost>
-          </Group>
-        )}
-        {process.env.EXPO_OS === 'android' && (
-          <Group name="Compose View">
-            <ComposeHost style={styles.view}>
-              <ExpoKeyeventComposeView
-                title="Hello from ExpoKeyevent"
-                modifiers={[paddingAll(16), composeBackground('#f0f0f0')]}>
-                <ComposeText>Child content</ComposeText>
-              </ExpoKeyeventComposeView>
-            </ComposeHost>
-          </Group>
-        )}
-        {process.env.EXPO_OS === 'android' && (
-          <Group name="Compose Modifier">
-            <ComposeHost style={styles.view}>
-              <Column
-                modifiers={[
-                  paddingAll(20),
-                  expoKeyeventComposeModifier({ color: 0xFFFF6B35, width: 3, cornerRadius: 8 }),
-                ]}>
-                <ComposeText>Custom modifier example</ComposeText>
-              </Column>
-            </ComposeHost>
-          </Group>
-        )}
       </ScrollView>
     </SafeAreaView>
   );

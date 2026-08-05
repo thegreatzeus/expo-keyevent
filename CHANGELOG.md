@@ -1,5 +1,11 @@
 # @thegreatzeus/expo-keyevent
 
+## 0.2.1
+
+### Patch Changes
+
+- 3c2b9cb: Use 'npm publish' instead of 'yarn publish' to allow for OIDC to work properly.
+
 ## 0.2.0
 
 ### Minor Changes

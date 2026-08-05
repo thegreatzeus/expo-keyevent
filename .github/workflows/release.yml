@@ -28,16 +28,16 @@ jobs:
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build package
-        run: npm run build
+        run: yarn build
 
       - name: Create release PR or publish
         uses: changesets/action@v1
         with:
           commit: "chore: release"
           title: "chore: release"
-          publish: npm publish
+          publish: yarn publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

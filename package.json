@@ -26,10 +26,10 @@
   "author": "Mehrdad Moradi <me@mmoradi.ca> (thegreatzeus)",
   "license": "MIT",
   "homepage": "https://github.com/thegreatzeus/expo-keyevent#readme",
-  "dependencies": {},
   "devDependencies": {
-    "@expo/ui": "^56.0.10",
     "@babel/core": "^7.26.0",
+    "@changesets/cli": "^2.31.1",
+    "@expo/ui": "^56.0.10",
     "@types/jest": "^29.2.1",
     "@types/react": "~19.1.1",
     "babel-preset-expo": "~55.0.8",

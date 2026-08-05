@@ -1,5 +1,11 @@
 # @thegreatzeus/expo-keyevent
 
+## 0.2.2
+
+### Patch Changes
+
+- 79d6b6a: Change package publish config to `public`
+
 ## 0.2.1
 
 ### Patch Changes

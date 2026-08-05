@@ -38,6 +38,6 @@ jobs:
         with:
           commit: "chore: release"
           title: "chore: release"
-          publish: yarn publish
+          publish: npm publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

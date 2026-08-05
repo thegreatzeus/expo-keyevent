@@ -1,7 +1,7 @@
 {
-  "name": "expo-keyevent",
+  "name": "@thegreatzeus/expo-keyevent",
   "version": "0.1.0",
-  "description": "My new module",
+  "description": "Native key and gamepad events for React Native and Expo",
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "scripts": {

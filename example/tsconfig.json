@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "expo-keyevent": ["../src/index"],
-      "expo-keyevent/*": ["../src/*"]
+      "@thegreatzeus/expo-keyevent": ["../src/index"],
+      "@thegreatzeus/expo-keyevent/*": ["../src/*"]
     }
   }
 }

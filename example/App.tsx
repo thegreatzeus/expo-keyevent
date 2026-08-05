@@ -1,4 +1,4 @@
-import ExpoKeyevent from 'expo-keyevent';
+import ExpoKeyevent from '@thegreatzeus/expo-keyevent';
 import { useEvent } from 'expo';
 import { useEffect } from 'react';
 import { SafeAreaView, ScrollView, Text, View } from 'react-native';

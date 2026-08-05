@@ -1,4 +1,4 @@
-# expo-keyevent
+# @thegreatzeus/expo-keyevent
 
 A powerful Expo module that allows you to globally listen and react to hardware keyboard events (`onKeyDown` and `onKeyUp`) on both iOS and Android. 
 
@@ -7,9 +7,9 @@ Additionally, on iOS, this package natively captures input from the **Gamepad AP
 ## Installation
 
 ```bash
-npm install expo-keyevent
+npm install @thegreatzeus/expo-keyevent
 # or
-yarn add expo-keyevent
+yarn add @thegreatzeus/expo-keyevent
 ```
 
 > **Note:** As this package includes native code, you will need to create a custom development build (using `npx expo run:ios` or `npx expo run:android`) or use EAS Build. This module will not work in the standard Expo Go app.
@@ -22,7 +22,7 @@ Here is a simple example showing how to listen to key presses and releases in yo
 import { useEffect } from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
 import { useEvent } from 'expo';
-import ExpoKeyevent from 'expo-keyevent';
+import ExpoKeyevent from '@thegreatzeus/expo-keyevent';
 
 export default function App() {
   // Hook into the native key events

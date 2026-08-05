@@ -20,7 +20,7 @@ config.resolver.nodeModulesPaths = [
 ];
 
 config.resolver.extraNodeModules = {
-  'expo-keyevent': '..',
+  '@thegreatzeus/expo-keyevent': '..',
 };
 
 config.watchFolders = [path.resolve(__dirname, '..')];

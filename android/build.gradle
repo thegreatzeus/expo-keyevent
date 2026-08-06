@@ -4,13 +4,13 @@ plugins {
 }
 
 group = 'expo.modules.keyevent'
-version = '0.2.4'
+version = '0.2.5'
 
 android {
   namespace "expo.modules.keyevent"
   defaultConfig {
     versionCode 1
-    versionName "0.2.4"
+    versionName "0.2.5"
   }
 
   lintOptions {

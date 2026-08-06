@@ -1,6 +1,6 @@
 {
   "name": "@thegreatzeus/expo-keyevent",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Native key and gamepad events for React Native and Expo",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -29,7 +29,6 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@changesets/cli": "^2.31.1",
-    "@expo/ui": "^56.0.10",
     "@types/jest": "^29.2.1",
     "@types/react": "~19.1.1",
     "babel-preset-expo": "~55.0.8",

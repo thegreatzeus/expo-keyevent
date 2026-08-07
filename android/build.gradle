@@ -3,14 +3,16 @@ plugins {
   id 'expo-module-gradle-plugin'
 }
 
+def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
 group = 'expo.modules.keyevent'
-version = '0.2.5'
+version = packageJson.version
 
 android {
   namespace "expo.modules.keyevent"
   defaultConfig {
     versionCode 1
-    versionName "0.2.5"
+    versionName packageJson.version
   }
 
   lintOptions {

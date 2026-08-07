@@ -1,5 +1,14 @@
 # @thegreatzeus/expo-keyevent
 
+## 0.2.6
+
+### Patch Changes
+
+- cd72a54: Removed unnecessary dependencies from the Android project.
+- fd02381: Removed tvOS from supported platforms. Lowered minimum iOS version to 14.0.
+- 030f995: Removed unnecessary peer dependency (@expo/ui) from package.json
+- 22781f7: Removed ExpoUI from iOS project's dependencies.
+
 ## 0.2.2
 
 ### Patch Changes
